@@ -4,6 +4,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -32,7 +33,7 @@ public class LambdaStepsTest {
             $(By.linkText(REPOSITORY)).click();
         });
         step("Открываем таб Issues в репозитории", () -> {
-            $(withText("Issues")).click();
+            $(".js-repo-nav").$(byText("Issues")).click();
         });
         step("Проверяем, что Issue c именем " + ISSUE_NAME + " существует", (s) -> {
             s.parameter("Название", ISSUE_NAME);

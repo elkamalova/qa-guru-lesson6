@@ -2,6 +2,7 @@ import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -24,7 +25,7 @@ public class WebSteps {
 
     @Step("Открываем таб Issues в репозитории")
     public void openIssueTab() {
-        $(withText("Issues")).click();
+        $(".js-repo-nav").$(byText("Issues")).click();
     }
 
     @Step("Проверяем что Issue c именем {issueName} существует")
